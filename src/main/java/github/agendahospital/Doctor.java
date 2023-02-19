@@ -5,35 +5,33 @@ import java.time.LocalDate;
 public class Doctor extends Persona{
     private String idDoctor;//identificador unico para el paciente
     private String especialidad;
-    private String horaTrabajo;
+    private String horaTrabajo;//Diurno, Nocturno, Matutino
     private String areaAtencion;
 
     //construcctores
     public Doctor() {
     }
 
-    public Doctor(String IdDoctor, String especialidad, String horaTrabajo, String areaAtencion) {
-        this.idDoctor = IdDoctor;
+    public Doctor(String idDoctor, String especialidad, String horaTrabajo, String areaAtencion) {
+        this.idDoctor = idDoctor;
         this.especialidad = especialidad;
         this.horaTrabajo = horaTrabajo;
         this.areaAtencion = areaAtencion;
     }
 
-    public Doctor(String especialidad, String horaTrabajo, String areaAtencion) {
-        this.especialidad = especialidad;
-        this.horaTrabajo = horaTrabajo;
-        this.areaAtencion = areaAtencion;
-    }
-
-    public Doctor(String especialidad, String horaTrabajo, String areaAtencion, String nombre, String apellido, int edad, String genero, String dirreccion, int telefono, String correoElectronico, LocalDate fechaNacimiento) {
+    public Doctor(String idDoctor, String especialidad, String horaTrabajo, String areaAtencion, String nombre, String apellido, int edad, String genero, String dirreccion, int telefono, String correoElectronico, LocalDate fechaNacimiento) {
         super(nombre, apellido, edad, genero, dirreccion, telefono, correoElectronico, fechaNacimiento);
+        this.idDoctor = idDoctor;
         this.especialidad = especialidad;
         this.horaTrabajo = horaTrabajo;
         this.areaAtencion = areaAtencion;
     }
 
     //getter and setter
-
+    public void setIdDoctor(String idDoctor) {
+        this.idDoctor = idDoctor;
+    }
+    
     public String getIdDoctor() {
         return idDoctor;
     }

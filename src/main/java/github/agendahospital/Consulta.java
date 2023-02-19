@@ -13,7 +13,8 @@ public class Consulta {
     public Consulta() {
     }
 
-    public Consulta(LocalDate fecha, String receta, String tratamiento, String diagnostico) {
+    public Consulta(String idConsulta, LocalDate fecha, String receta, String tratamiento, String diagnostico) {
+        this.idConsulta = idConsulta;
         this.fecha = fecha;
         this.receta = receta;
         this.tratamiento = tratamiento;
@@ -21,6 +22,10 @@ public class Consulta {
     }
         
     //getter and setter
+    public void setIdConsulta(String idConsulta) {
+        this.idConsulta = idConsulta;
+    }
+
     public String getIdConsulta() {
         return idConsulta;
     }
@@ -69,13 +74,13 @@ public class Consulta {
 
     //Id de consulta
     public String generarIdConsulta() {
-        String Nombre = getTratamiento().substring(0, Math.min(getTratamiento().length(), 3)).toUpperCase();
-        String Apellido = getDiagnostico().substring(0, Math.min(getDiagnostico().length(), 3)).toUpperCase();
-        String primerasTresLetrasNombre = Nombre + Apellido;
+        String Tratamiento = getTratamiento().substring(0, Math.min(getTratamiento().length(), 3)).toUpperCase();
+        String Diagnostico = getDiagnostico().substring(0, Math.min(getDiagnostico().length(), 3)).toUpperCase();
+        String primerasTresLetras = Tratamiento + Diagnostico;
         String yearNacimiento = String.valueOf(getFecha().getYear());
         String mesNacimiento = String.format("%02d", getFecha().getMonthValue());
         String diaNacimiento = String.format("%02d", getFecha().getDayOfMonth());
-        String primerasLetrasGenero = getReceta().substring(0, Math.min(getReceta().length(), 3)).toUpperCase();
-        return primerasTresLetrasNombre + yearNacimiento + mesNacimiento + diaNacimiento + primerasLetrasGenero;
+        String primerasLetrasReceta = getReceta().substring(0, Math.min(getReceta().length(), 3)).toUpperCase();
+        return primerasTresLetras + yearNacimiento + mesNacimiento + diaNacimiento + primerasLetrasReceta;
     }
 }

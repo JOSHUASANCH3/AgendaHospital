@@ -14,8 +14,14 @@ public class Paciente extends Persona {
         this.fechaAdmision = fechaAdmision;
     }
 
-    public Paciente(LocalDate fechaAdmision, String nombre, String apellido, int edad, String genero, String dirreccion, int telefono, String correoElectronico, LocalDate fechaNacimiento) {
+    public Paciente(String idPaciente, LocalDate fechaAdmision) {
+        this.idPaciente = idPaciente;
+        this.fechaAdmision = fechaAdmision;
+    }
+
+    public Paciente(String idPaciente, LocalDate fechaAdmision, String nombre, String apellido, int edad, String genero, String dirreccion, int telefono, String correoElectronico, LocalDate fechaNacimiento) {
         super(nombre, apellido, edad, genero, dirreccion, telefono, correoElectronico, fechaNacimiento);
+        this.idPaciente = idPaciente;
         this.fechaAdmision = fechaAdmision;
     }
     
