@@ -37,7 +37,14 @@ public class Persona {
     public String getApellido() { return apellido; }
     public void setApellido(String apellido) { this.apellido = apellido; }
     public int getEdad() { return edad; }
-    public void setEdad(int edad) { this.edad = edad; }
+    public void setEdad(int edad) { 
+        if (validarEdad(edad) != false)
+        {
+            this.edad = edad;
+        }else{
+            System.out.println("Ingrese una edad menor a 100");
+        }
+    }
     public String getGenero() {return genero; }
     public void setGenero(String genero) {this.genero = genero; }
     public String getDirreccion() { return dirreccion; }

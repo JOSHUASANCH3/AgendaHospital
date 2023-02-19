@@ -3,7 +3,7 @@ package github.agendahospital;
 import java.time.LocalDate;
 
 public class Doctor extends Persona{
-    private String idDoctor = generarIdDoctor();//identificador unico para el paciente
+    private String idDoctor;//identificador unico para el paciente
     private String especialidad;
     private String horaTrabajo;
     private String areaAtencion;

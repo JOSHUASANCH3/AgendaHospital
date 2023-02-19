@@ -3,7 +3,7 @@ package github.agendahospital;
 import java.time.LocalDate;//para usar la fecha de calendario
 
 public class Paciente extends Persona {
-    private String idPaciente = generarIdPaciente();//identificador unico para el paciente
+    private String idPaciente;//identificador unico para el paciente
     private LocalDate fechaAdmision;
     
     //constructores
@@ -20,6 +20,11 @@ public class Paciente extends Persona {
     }
     
     //getter and setter
+
+    public void setIdPaciente(String idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+    
     public String getIdPaciente() {
         return idPaciente;
     }
