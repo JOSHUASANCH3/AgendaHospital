@@ -2,7 +2,7 @@ package github.agendahospital;
 
 import java.time.LocalDate;
 
-public class Persona {
+public abstract class Persona {
     //Atributos de persona
     private String nombre;
     private String apellido;
@@ -54,11 +54,7 @@ public class Persona {
     public String getCorreoElectronico() {return correoElectronico; }
     public void setCorreoElectronico(String correoElectronico) { this.correoElectronico = correoElectronico; }
     public LocalDate getFechaNacimiento() { return fechaNacimiento; }
-
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-    
+    public void setFechaNacimiento(LocalDate fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
     
     //Utilizar metodos de Bandera para realizar la validacion de variables
     public boolean validarGenero(String genero) {

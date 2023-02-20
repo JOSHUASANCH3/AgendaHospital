@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Consulta {
     private String idConsulta;
-    private LocalDate fecha;
+    private LocalDate fecha = LocalDate.now();
     private String receta;
     private String tratamiento;
     private String diagnostico;
@@ -13,14 +13,14 @@ public class Consulta {
     public Consulta() {
     }
 
-    public Consulta(String idConsulta, LocalDate fecha, String receta, String tratamiento, String diagnostico) {
-        this.idConsulta = idConsulta;
+    public Consulta(LocalDate fecha, String receta, String tratamiento, String diagnostico) {
+        this.idConsulta = generarIdConsulta();
         this.fecha = fecha;
         this.receta = receta;
         this.tratamiento = tratamiento;
         this.diagnostico = diagnostico;
     }
-        
+    
     //getter and setter
     public void setIdConsulta(String idConsulta) {
         this.idConsulta = idConsulta;
@@ -74,13 +74,13 @@ public class Consulta {
 
     //Id de consulta
     public String generarIdConsulta() {
-        String Tratamiento = getTratamiento().substring(0, Math.min(getTratamiento().length(), 3)).toUpperCase();
-        String Diagnostico = getDiagnostico().substring(0, Math.min(getDiagnostico().length(), 3)).toUpperCase();
-        String primerasTresLetras = Tratamiento + Diagnostico;
-        String yearNacimiento = String.valueOf(getFecha().getYear());
-        String mesNacimiento = String.format("%02d", getFecha().getMonthValue());
-        String diaNacimiento = String.format("%02d", getFecha().getDayOfMonth());
-        String primerasLetrasReceta = getReceta().substring(0, Math.min(getReceta().length(), 3)).toUpperCase();
-        return primerasTresLetras + yearNacimiento + mesNacimiento + diaNacimiento + primerasLetrasReceta;
+    String Consulta = "Consulta - ", yearNacimiento = "", mesNacimiento = "", diaNacimiento = "";
+    if (fecha != null) {
+        yearNacimiento = String.valueOf(getFecha().getYear());
+        mesNacimiento = String.format("%02d", getFecha().getMonthValue());
+        diaNacimiento = String.format("%02d", getFecha().getDayOfMonth());
     }
+    return Consulta + yearNacimiento + mesNacimiento + diaNacimiento;
+}
+
 }

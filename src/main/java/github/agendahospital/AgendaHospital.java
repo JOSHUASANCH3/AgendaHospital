@@ -1,6 +1,7 @@
 package github.agendahospital;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,15 +14,15 @@ public class AgendaHospital {
         Paciente paciente = new Paciente();
         Doctor doctor = new Doctor();
         Consulta consulta = new Consulta();
-        Paciente pConstructor = new Paciente(paciente.getIdPaciente(),LocalDate.now(), "Julio", "Sanchez", 25, "Masculino", "Managua", 15015416, "jokayou3@gmail.com", LocalDate.now());
-        Doctor dContructor = new Doctor(doctor.getIdDoctor(), "Pediatria", "Matutino", "Emergencia", "Ramiro", "Reyes", 31, "Masculino", "Managua", 15489646, "doctor@gmail.com", LocalDate.now());
-        Consulta cContructor = new Consulta(consulta.getIdConsulta(), LocalDate.now(), "Acetaminofen", "Tomar 7 dias", "Calentura");
-        List addInfoPaciente = new ArrayList<>();
-        List addInfoDoctor = new ArrayList<>();
-        List addInfoConsulta = new ArrayList<>();
-        addInfoPaciente.add(pConstructor);
-        addInfoDoctor.add(dContructor);
-        addInfoConsulta.add(cContructor);
+        Paciente pArray = new Paciente(LocalDate.now(), "Julio", "Sanchez", 25, "Masculino", "Managua", 15015416, "jokayou3@gmail.com", LocalDate.of(1989, Month.JUNE, 15));
+        Doctor dArray = new Doctor("Pediatria", "Matutino", "Emergencia", "Ramiro", "Reyes", 31, "Masculino", "Managua", 15489646, "doctor@gmail.com", LocalDate.of(1977, Month.DECEMBER, 2));
+        Consulta cArray = new Consulta(LocalDate.now(), "Acetaminofen", "Una semana", "Calentura");
+        ArrayList<Paciente> addInfoPaciente = new ArrayList<>();
+        ArrayList<Doctor> addInfoDoctor = new ArrayList<>();
+        ArrayList<Consulta> addInfoConsulta = new ArrayList<>();
+        addInfoPaciente.add(pArray);
+        addInfoDoctor.add(dArray);
+        addInfoConsulta.add(cArray);
         int inCase = 0;
         do
         {
@@ -30,9 +31,7 @@ public class AgendaHospital {
                            1.Registrar Datos
                            2.Mostrar Datos
                            3.Buscar Datos    
-                           4.Eliminar Datos
-                           5.Cambiar Datos
-                           6.Opciones a desarrollar?Building    
+                           4.Eliminar Datos   
                            0.Salir del sistema""");
             inCase = Integer.parseInt(cin.nextLine());
             switch (inCase)
@@ -140,7 +139,7 @@ public class AgendaHospital {
                                 consulta.setReceta(cin.next());
                                 System.out.println("Escriba el Tratamiento por cuanto tiempo debe hacerlo");
                                 consulta.setReceta(cin.next());
-                                System.out.println("Escriba el Diagnostico que se le dio al paciente");    
+                                System.out.println("Escriba el Diagnostico que se le dio al paciente");
                                 consulta.setReceta(cin.next());
                                 //generar ID de paciente
                                 paciente.setIdPaciente(paciente.generarIdPaciente());
@@ -170,21 +169,24 @@ public class AgendaHospital {
                     switch (inCase)
                     {
                         case 1:
-                            for (int i = 0; i < addInfoConsulta.size(); i++)
+                            System.out.println("\nSe mostraran los datos de todos los Pacientes\n");
+                            for (int i = 0; i < addInfoPaciente.size(); i++)
                             {
-                                System.out.println(paciente.toString());
+                                System.out.println(addInfoPaciente.get(i).toString());
                             }
                             break;
                         case 2:
+                            System.out.println("\nSe mostraran los datos de todos los Doctores\n");
                             for (int i = 0; i < addInfoDoctor.size(); i++)
                             {
-                                System.out.println(doctor.toString());
+                                System.out.println(addInfoDoctor.get(i).toString());
                             }
                             break;
                         case 3:
+                            System.out.println("\nSe mostraran los datos de todos los Consultas\n");
                             for (int i = 0; i < addInfoConsulta.size(); i++)
                             {
-                                System.out.println(consulta.toString());
+                                System.out.println(addInfoConsulta.get(i).toString());
                             }
                             break;
                         default:
@@ -192,12 +194,70 @@ public class AgendaHospital {
                     }
                     break;
                 case 3:
+                    System.out.println("""
+                                       *********       Menu       *********
+                                       1.Buscar datos de los Paciente
+                                       2.Buscar los datos de los Doctor
+                                       3.Buscar los datos de las Consulta
+                                       0.Salir""");
+                    inCase = Integer.parseInt(cin.nextLine());
+                    switch (inCase)
+                    {
+                        case 1:
+                            System.out.println("Primero coloque el nombre del paciente");
+                            String nameSearch1 = cin.nextLine();
+                            System.out.println("Segundo coloque el apellido del paciente");
+                            String nameSearch2 = cin.nextLine();
+                            for (Paciente searchP : addInfoPaciente)
+                            {
+                                if (searchP.getNombre()== nameSearch1 && searchP.getApellido()== nameSearch2)
+                                {
+                                    // Encontramos el paciente buscado
+                                    System.out.println("Paciente encontrado: " + searchP.getNombre() + " " + searchP.getApellido());
+                                    break; // Terminamos el bucle
+                                }
+                            }
+                            break;
+                        case 2:
+                            System.out.println("Primero coloque el nombre del Doctor");
+                            nameSearch1 = cin.nextLine();
+                            System.out.println("Segundo coloque el apellido del Doctor");
+                            nameSearch2 = cin.nextLine();
+                            for (Doctor searchD : addInfoDoctor)
+                            {
+                                if (searchD.getNombre()== nameSearch1 && searchD.getApellido()== nameSearch2)
+                                {
+                                    // Encontramos el paciente buscado
+                                    System.out.println("Doctor encontrado: " + searchD.getNombre() + " " + searchD.getApellido());
+                                    break; // Terminamos el bucle
+                                }
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Primero coloque el ID de la Consulta");
+                            nameSearch1 = cin.nextLine();
+                            for (Consulta searchC : addInfoConsulta)
+                            {
+                                if (searchC.getIdConsulta()== nameSearch1)
+                                {
+                                    // Encontramos el paciente buscado
+                                    System.out.println("El numero de la consulta es: " + searchC.getIdConsulta()+ " y su tratamiento fue: " + searchC.getTratamiento());
+                                    break; // Terminamos el bucle
+                                }
+                            }
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
                     break;
                 case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
+                    System.out.println("""
+                                       *********       Menu       *********
+                                       1.Eliminar datos de los Paciente
+                                       2.Eliminar los datos de los Doctor
+                                       3.Eliminar los datos de las Consulta
+                                       0.Salir""");
+                    inCase = Integer.parseInt(cin.nextLine());
                     break;
                 default:
                     throw new AssertionError();
