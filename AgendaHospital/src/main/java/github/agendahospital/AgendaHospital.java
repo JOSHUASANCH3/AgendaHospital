@@ -45,6 +45,7 @@ public class AgendaHospital {
                                        2.Registrar Doctor
                                        3.Registrar Consulta
                                        0.Salir""");
+                    inCase = 0; 
                     inCase = Integer.parseInt(cin.nextLine());
                     switch (inCase)
                     {
@@ -84,6 +85,7 @@ public class AgendaHospital {
                                         + "\nDesea Ingresar otro Paciente"
                                         + "\n1.Si"
                                         + "\n0.No");
+                                inCase = 0;
                                 inCase = Integer.parseInt(cin.nextLine());
                             }
                             break;
@@ -299,7 +301,6 @@ public class AgendaHospital {
                         default:
                             throw new AssertionError();
                     }
-
                     break;
                 default:
                     throw new AssertionError();
