@@ -210,12 +210,13 @@ public class AgendaHospital {
                             String nameSearch1 = cin.nextLine();
                             for (Paciente searchP : addInfoPaciente)
                             {
-                                if (searchP.getIdPaciente()== nameSearch1)
+                                if (searchP.getIdPaciente() == nameSearch1)
                                 {
                                     // Encontramos el paciente buscado
-                                    System.out.println("ID del Paciente: "+searchP.getIdPaciente()+" Paciente encontrado: " + searchP.getNombre() + " " + searchP.getApellido());
+                                    System.out.println("ID del Paciente: " + searchP.getIdPaciente() + " Paciente encontrado: " + searchP.getNombre() + " " + searchP.getApellido());
                                     break; // Terminamos el bucle
-                                }else{
+                                } else
+                                {
                                 }
                             }
                             break;
@@ -224,10 +225,10 @@ public class AgendaHospital {
                             nameSearch1 = cin.nextLine();
                             for (Doctor searchD : addInfoDoctor)
                             {
-                                if (searchD.getIdDoctor()== nameSearch1)
+                                if (searchD.getIdDoctor() == nameSearch1)
                                 {
                                     // Encontramos el paciente buscado
-                                    System.out.println("ID del doctor encontrado : "+searchD.generarIdDoctor()+" Paciente encontrado: " + searchD.getNombre() + " " + searchD.getApellido());
+                                    System.out.println("ID del doctor encontrado : " + searchD.generarIdDoctor() + " Paciente encontrado: " + searchD.getNombre() + " " + searchD.getApellido());
                                     break; // Terminamos el bucle
                                 }
                             }
@@ -237,10 +238,10 @@ public class AgendaHospital {
                             nameSearch1 = cin.nextLine();
                             for (Consulta searchC : addInfoConsulta)
                             {
-                                if (searchC.getIdConsulta()== nameSearch1)
+                                if (searchC.getIdConsulta() == nameSearch1)
                                 {
                                     // Encontramos el paciente buscado
-                                    System.out.println("El numero de la consulta es: " + searchC.getIdConsulta()+ " y su tratamiento fue: " + searchC.getTratamiento());
+                                    System.out.println("El numero de la consulta es: " + searchC.getIdConsulta() + " y su tratamiento fue: " + searchC.getTratamiento());
                                     break; // Terminamos el bucle
                                 }
                             }
@@ -262,18 +263,43 @@ public class AgendaHospital {
                         case 1:
                             System.out.println("Digite el ID del paciente para eliminarlo");
                             String rmString = cin.nextLine();
-                            
+                            for (Paciente removeP : addInfoPaciente)
+                            {
+                                if (rmString.equals(removeP.getIdPaciente()))
+                                {
+                                    addInfoPaciente.remove(removeP);
+                                    break;
+                                }
+                            }
                             break;
                         case 2:
                             System.out.println("Digite el ID del doctor para eliminarlo");
+                            rmString = cin.nextLine();
+                            for (Paciente removeP : addInfoPaciente)
+                            {
+                                if (rmString.equals(removeP.getIdPaciente()))
+                                {
+                                    addInfoPaciente.remove(removeP);
+                                    break;
+                                }
+                            }
                             break;
                         case 3:
                             System.out.println("Digite el ID del consulta para eliminarlo");
+                            rmString = cin.nextLine();
+                            for (Paciente removeP : addInfoPaciente)
+                            {
+                                if (rmString.equals(removeP.getIdPaciente()))
+                                {
+                                    addInfoPaciente.remove(removeP);
+                                    break;
+                                }
+                            }
                             break;
                         default:
                             throw new AssertionError();
                     }
-                    
+
                     break;
                 default:
                     throw new AssertionError();
