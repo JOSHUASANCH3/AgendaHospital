@@ -3,7 +3,6 @@ package github.agendahospital;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class AgendaHospital {
@@ -15,15 +14,18 @@ public class AgendaHospital {
         Doctor doctor = new Doctor();
         Consulta consulta = new Consulta();
         Paciente pArray = new Paciente(LocalDate.now(), "Julio", "Sanchez", 25, "Masculino", "Managua", 15015416, "jokayou3@gmail.com", LocalDate.of(1989, Month.JUNE, 15));
+        Paciente pArray_ = new Paciente(LocalDate.now(), "Juan", "Sanchez", 25, "Masculino", "Managua", 16546516, "jokayou3@gmail.com", LocalDate.of(1993, Month.AUGUST, 29));
         Doctor dArray = new Doctor("Pediatria", "Matutino", "Emergencia", "Ramiro", "Reyes", 31, "Masculino", "Managua", 15489646, "doctor@gmail.com", LocalDate.of(1977, Month.DECEMBER, 2));
         Consulta cArray = new Consulta(LocalDate.now(), "Acetaminofen", "Una semana", "Calentura");
         ArrayList<Paciente> addInfoPaciente = new ArrayList<>();
         ArrayList<Doctor> addInfoDoctor = new ArrayList<>();
         ArrayList<Consulta> addInfoConsulta = new ArrayList<>();
         addInfoPaciente.add(pArray);
+        addInfoPaciente.add(pArray_);
         addInfoDoctor.add(dArray);
         addInfoConsulta.add(cArray);
         int inCase = 0;
+        //consola de agenda
         do
         {
             System.out.println("""
@@ -204,31 +206,28 @@ public class AgendaHospital {
                     switch (inCase)
                     {
                         case 1:
-                            System.out.println("Primero coloque el nombre del paciente");
+                            System.out.println("Primero coloque el ID del paciente");
                             String nameSearch1 = cin.nextLine();
-                            System.out.println("Segundo coloque el apellido del paciente");
-                            String nameSearch2 = cin.nextLine();
                             for (Paciente searchP : addInfoPaciente)
                             {
-                                if (searchP.getNombre()== nameSearch1 && searchP.getApellido()== nameSearch2)
+                                if (searchP.getIdPaciente()== nameSearch1)
                                 {
                                     // Encontramos el paciente buscado
-                                    System.out.println("Paciente encontrado: " + searchP.getNombre() + " " + searchP.getApellido());
+                                    System.out.println("ID del Paciente: "+searchP.getIdPaciente()+" Paciente encontrado: " + searchP.getNombre() + " " + searchP.getApellido());
                                     break; // Terminamos el bucle
+                                }else{
                                 }
                             }
                             break;
                         case 2:
-                            System.out.println("Primero coloque el nombre del Doctor");
+                            System.out.println("Primero coloque el ID del Doctor");
                             nameSearch1 = cin.nextLine();
-                            System.out.println("Segundo coloque el apellido del Doctor");
-                            nameSearch2 = cin.nextLine();
                             for (Doctor searchD : addInfoDoctor)
                             {
-                                if (searchD.getNombre()== nameSearch1 && searchD.getApellido()== nameSearch2)
+                                if (searchD.getIdDoctor()== nameSearch1)
                                 {
                                     // Encontramos el paciente buscado
-                                    System.out.println("Doctor encontrado: " + searchD.getNombre() + " " + searchD.getApellido());
+                                    System.out.println("ID del doctor encontrado : "+searchD.generarIdDoctor()+" Paciente encontrado: " + searchD.getNombre() + " " + searchD.getApellido());
                                     break; // Terminamos el bucle
                                 }
                             }
@@ -258,6 +257,23 @@ public class AgendaHospital {
                                        3.Eliminar los datos de las Consulta
                                        0.Salir""");
                     inCase = Integer.parseInt(cin.nextLine());
+                    switch (inCase)
+                    {
+                        case 1:
+                            System.out.println("Digite el ID del paciente para eliminarlo");
+                            String rmString = cin.nextLine();
+                            
+                            break;
+                        case 2:
+                            System.out.println("Digite el ID del doctor para eliminarlo");
+                            break;
+                        case 3:
+                            System.out.println("Digite el ID del consulta para eliminarlo");
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
+                    
                     break;
                 default:
                     throw new AssertionError();
