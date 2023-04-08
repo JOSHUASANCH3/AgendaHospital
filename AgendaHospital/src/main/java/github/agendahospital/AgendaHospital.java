@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class AgendaHospital {
 
     public static void main(String[] args) {
+        //haciendo un pequeño cambio
         //Consola de gestion para el programa si asi que se puede llamar
         Scanner cin = new Scanner(System.in);//entrada de datos
         Paciente paciente = new Paciente();
