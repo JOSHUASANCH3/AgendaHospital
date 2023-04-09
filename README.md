@@ -1,19 +1,30 @@
-# AgendaHospital - GITHUB
+<div align="center">
+  <h1>AgendaHospital - Interface in Java</h1>
+  <a class="header-badge" target="_blank" href="https://twitter.com/joshuasanch3">
+  <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/JOSHUASANCH3?style=social">
+  </a>
 
-- Introduccion en Desarrollo....
-- Estado de Actividad: Planning 🔵
-- Clasificar etapas del codigo: 
-  - Codigo en consola: Ready 🟢
-  - Codigo de la interfaz: Planning 🔵
+<sub>Author:
+<a href="https://twitter.com/joshuasanch3" target="_blank">Joshua Sanchez</a><br>
+<small> Self-Paced Learning : February 17, 2023</small>
+</sub>
+
+</div>
+
+# Introduction
+
+- Introduction for development - Planning 🔵
+- Code Stages: 
+  - Code in Console: Ready 🟢
+  - Code for the interface: Planning 🔵
   - Interfaz: Backlog ⚫
-  - Cronograma del trabajo en el README.md: Planning 🔵
+  - Development Schedule: Planning 🔵
+- Goals
+  - #1 Finish project successfully 🏁
 
----
 
-# Actividad del curso
+# Code Stages
 
-|# Actividad | Estado de Actividad                                                           |
+|# Activity  | Activity Status                                                               |
 |------------|:-----------------------------------------------------------------------------:|
-| Estado     |Planning 🔵 - InProcess 🟡 - Ready 🟢 - Paused 🟣 - Backlog ⚫ - Canceled 🔴|
-
----
+| Status     |Planning 🔵 - InProcess 🟡 - Ready 🟢 - Paused 🟣 - Backlog ⚫ - Canceled 🔴|
