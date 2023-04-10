@@ -3,7 +3,8 @@ package github.agendahospital;
 import java.util.ArrayList;
 
 public class Consultorio {
-
+    
+    private Persona personas;
     private ArrayList<Paciente> pacientes;
     private ArrayList<Doctor> doctores;
     private ArrayList<Consulta> consultas;
@@ -59,6 +60,11 @@ public class Consultorio {
         }
         return null;
     }
-    
+
     //Metodos para eliminar pacientes, doctores, consulta
+    public void eliminarPaciente(String idPaciente) {
+        pacientes.removeIf(pacientes -> pacientes instanceof Paciente && ((Paciente) pacientes).getIdPaciente().equals(idPaciente));
+    }
+    
+
 }
