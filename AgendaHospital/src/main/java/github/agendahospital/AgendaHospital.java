@@ -265,10 +265,10 @@ public class AgendaHospital {
                     {
                         case 1:
                             System.out.println("Digite el ID del paciente para eliminarlo");
-                            String rmString = cin.nextLine();
+                            String idAEliminar = cin.nextLine();
                             for (Paciente removeP : addInfoPaciente)
                             {
-                                if (rmString.equals(removeP.getIdPaciente()))
+                                if (idAEliminar.equals(removeP.getIdPaciente()))
                                 {
                                     addInfoPaciente.remove(removeP);
                                     break;
@@ -277,10 +277,10 @@ public class AgendaHospital {
                             break;
                         case 2:
                             System.out.println("Digite el ID del doctor para eliminarlo");
-                            rmString = cin.nextLine();
+                            idAEliminar = cin.nextLine();
                             for (Paciente removeP : addInfoPaciente)
                             {
-                                if (rmString.equals(removeP.getIdPaciente()))
+                                if (idAEliminar.equals(removeP.getIdPaciente()))
                                 {
                                     addInfoPaciente.remove(removeP);
                                     break;
@@ -289,10 +289,10 @@ public class AgendaHospital {
                             break;
                         case 3:
                             System.out.println("Digite el ID del consulta para eliminarlo");
-                            rmString = cin.nextLine();
+                            idAEliminar = cin.nextLine();
                             for (Paciente removeP : addInfoPaciente)
                             {
-                                if (rmString.equals(removeP.getIdPaciente()))
+                                if (idAEliminar.equals(removeP.getIdPaciente()))
                                 {
                                     addInfoPaciente.remove(removeP);
                                     break;
